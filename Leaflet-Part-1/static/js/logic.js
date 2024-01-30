@@ -88,12 +88,12 @@ function createMap(earthQuakes) {
 
 // Function to create the legend 
 function createLegend(map) {
-  let legend = L.control({ position: 'topright' });
+  let legend = L.control({ position: 'bottomright' });
 
   legend.onAdd = function () {
       let div = L.DomUtil.create('div', 'info legend');
       let grades = [0, 25, 50, 100];
-      let colors = ['yellow', 'pink', 'violet', 'blue']; // Adjust colors accordingly
+      let colors = ['yellow', 'pink', 'violet', 'blue']; 
 
       // Loop through depth thresholds and generate a label with a colored square for each
       for (let i = 0; i < grades.length; i++) {
@@ -129,7 +129,7 @@ function createMarkers(response) {
       } else if (quake.geometry.coordinates[2] > 25) {
           color = "pink";
       } else {
-          color = "white";
+          color = "yellow";
       }
 
       // Create a marker with size relative to mag, and bind a popup with the quake name, mag, and depth.
